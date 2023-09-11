@@ -1,15 +1,18 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:todoapp/screens/screens.dart';
+import 'package:todoapp/config/config.dart';
+import 'package:todoapp/screens/home_screen.dart';
+
 
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme:AppTheme.light,
       home: HomeScreen(),
 
     );
