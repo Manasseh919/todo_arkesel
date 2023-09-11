@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/utils/utils.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp/widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,29 +19,72 @@ class HomeScreen extends StatelessWidget {
                 height: deviceSize.height * 0.3,
                 width: deviceSize.width,
                 color: colors.primary,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "May 20,2023",
-                        style: context.textTheme.headlineSmall
-                            ?.copyWith(color: colors.surface, fontSize: 20),
-                      ),
-                      const Gap(20),
-                      Text(
-                        "My Todo list",
-                        style: context.textTheme.headlineSmall?.copyWith(
-                            color: colors.surface,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40),
-                      ),
-                    ],
-                  ),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DisplayWhiteText(
+                      text: "May 20, 2023",
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    DisplayWhiteText(
+                      text: "My Todo list",
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ],
                 ),
               ),
             ],
-          )
+          ),
+          Positioned(
+              top: 170,
+              left: 0,
+              right: 0,
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: deviceSize.width,
+                      height: deviceSize.height * 0.3,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colors.primaryContainer),
+                      child: ListView.builder(
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (ctx, index) {
+                          return Text("Home");
+                        },
+                      ),
+                    ),
+                    Gap(20),
+                   Text("Completed",
+                    style: context.textTheme.headlineMedium,
+                    ),
+                    Gap(20),
+                     Container(
+                      width: deviceSize.width,
+                      height: deviceSize.height * 0.2,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colors.primaryContainer),
+                      child: ListView.builder(
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (ctx, index) {
+                          return Text("Home");
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ))
         ],
       ),
     );
